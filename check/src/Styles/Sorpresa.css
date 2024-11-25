@@ -1,0 +1,1060 @@
+body {
+    background-color: #f4eae3;
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+    transition: margin-left 0.3s;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #804000; /* Color de los títulos */
+  }
+  .access-check-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 55px; /* Reduce el ancho del logo */
+    height: 55px; /* Reduce la altura del logo */
+  }
+  
+  .logo img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .list-item {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #F5F0EE;
+  }
+  
+  .list-item:hover {
+    background-color: #d9bda5;
+  }
+  
+  .apartment-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between;
+    gap: 20px;
+    margin: 130px;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .floor-container {
+    flex: 1 1 45%; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .floor-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .floor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+ 
+  /* CSS para centrar el título de Access Check */
+  .access-check {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .access-check-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* CSS para posicionar la lista en la parte izquierda */
+  .access-check-list {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 0; /* Asegura que la lista esté alineada a la izquierda */
+    padding-left: 20px; /* Añade un pequeño padding a la izquierda */
+    list-style-type: disc; /* Añade los ítems de la lista como círculos */
+  }
+  
+  .apartment-list-title {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #6e3f1d;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fefafa;
+  }
+  
+  .menu a:hover {
+    color: #966e4d;
+  }
+  
+  .apartment-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .apartment-column {
+    width: 45%;
+    margin: 20px;
+  }
+  
+  .apartment-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .apartment-column li {
+    margin-bottom: 10px;
+  }
+  
+  .centered-title {
+    text-align: center;
+  }
+  
+  /* Reordenamiento de pisos */
+  .apartment-list .floor-container:nth-child(2) {
+    order: 2; /* Segundo piso a la derecha del primer piso */
+  }
+  
+  .apartment-list .floor-container:nth-child(3) {
+    order: 3; /* Tercer piso debajo del primer piso */
+  }
+  
+  .apartment-list .floor-container:nth-child(4) {
+    order: 4; /* Cuarto piso debajo del segundo piso */
+  }
+  
+  .apartment-list .floor-container:nth-child(5) {
+    order: 5; /* Quinto piso debajo del tercer piso */
+  }
+  
+  .apartment-list .floor-container:nth-child(6) {
+    order: 6; /* Sexto piso debajo del cuarto piso */
+  }
+  .icono-container {
+    position: fixed; /* Asegura que el contenedor se mantenga en una posición fija */
+    top: 20px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde el borde derecho */
+    width: auto; /* Ajusta el ancho según el contenido */
+    height: auto; /* Ajusta la altura según el contenido */
+    z-index: 1000; /* Asegura que el contenedor esté encima de otros elementos */
+  }
+  
+  .icono-container img {
+    width: 40px; /* Ajusta el tamaño del ícono */
+    height: 40px; /* Ajusta el tamaño del ícono */
+  }
+  
+  
+  /*Efecto de escritura del titulo*/
+  /* Clase CSS para crear un efecto de texto que se escribe automáticamente */
+  .typing-text {
+    /* Oculta el texto que excede el ancho del contenedor */
+    overflow: hidden;
+    
+    /* Agrega una línea vertical a la derecha del texto para simular un cursor */
+    border-right: 0.15em solid rgb(150, 94, 67);
+    
+    /* Impide que el texto se envuelva a la línea siguiente */
+    white-space: nowrap;
+    
+    /* Aplica dos animaciones al texto: 'typing' y 'blink-caret' */
+    animation: 
+      /* Animación 'typing' que se repite infinitamente durante 5 segundos */
+      typing 5s 
+      /* Divide la animación en 40 pasos y detiene la animación al final de cada paso */
+      steps(40, end) 
+      infinite, 
+      /* Animación 'blink-caret' que se repite infinitamente durante 0.75 segundos */
+      blink-caret 0.75s 
+      /* Divide la animación en pasos y detiene la animación al final de cada paso */
+      step-end 
+      infinite;
+  }
+  
+  /* Definición de la animación 'typing' */
+  @keyframes typing {
+    /* Estado inicial de la animación: el texto tiene un ancho de 0 */
+    0% { width: 0; }
+    
+    /* Estado final de la animación: el texto tiene un ancho del 100% */
+    100% { width: 100%; }
+  }
+  
+  /* Definición de la animación 'blink-caret' */
+  @keyframes blink-caret {
+    /* Estado inicial y final de la animación: el cursor es transparente */
+    from, to { border-color: transparent; }
+    
+    /* Estado intermedio de la animación: el cursor es visible durante 50% del tiempo */
+    50% { border-color: rgb(189, 142, 113); }
+  }
+  
+  
+  
+  
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #6e3f1d; /* Color de fondo del menú */
+    color: #fefafa; /* Color del texto en el menú */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #ccc; /* Línea divisoria */
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #fefafa; /* Color del texto */
+    font-size: 1.1em;
+  }
+  
+  .sidebar a:hover {
+    color: #966e4d; /* Color al pasar el mouse */
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .sidebar h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #804000;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+  }
+  
+  .sidebar li a.active {
+    background-color: #dcc9bc;
+  }
+  
+  .sidebar li ul.sub-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li ul.sub-menu li a {
+    padding-left: 20px;
+  }
+  
+  .sidebar li:hover ul.sub-menu {
+    display: block;
+  }
+  
+  #correo {
+    width: 100px; /* Ajusta el ancho de la imagen */
+    height: 100px; /* Ajusta el alto de la imagen */
+    margin: 5px; /* Ajusta el margen de la imagen */
+    object-fit: cover; /* Ajusta la forma en que se muestra la imagen */
+  }
+  
+  /* Estilos para el contenido principal */
+  .main-content {
+    margin-left: 220px;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .main-content header {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .main-content header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  
+  .center-title {
+      text-align: center;
+      margin: 0 auto;
+  }
+
+
+  .center-title {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .main-content {
+    flex: 1;
+    margin-left: 220px; /* Ajusta este valor según el ancho de tu menú lateral */
+    padding: 20px;
+  }
+  
+  .menu-lateral {
+    width: 200px; /* Ajusta el ancho del menú lateral */
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #f4f4f4;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+  
+ 
+  
+  .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      background-color: #804000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+  
+  .close-button:hover {
+      background-color: #603000;
+  }
+  
+  /*linea de rectanulo gris*/
+  .content-wrapper {
+    border: 2px solid #ccc; 
+    padding: 20px; 
+    margin: 20px; 
+  }
+  
+  
+  /* Estilos para la ventana del chat */
+  .chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: none; /* La ventana está oculta inicialmente */
+    z-index: 1000; /* Asegúrate de que la ventana esté encima de otros elementos */
+  }
+  
+  .chat-header {
+    background-color: #6e3f1d; /* Color de fondo del encabezado */
+    color: #fefafa; /* Color del texto del encabezado */
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-header h3 {
+    margin: 0;
+  }
+  
+  .close-button {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #fefafa; /* Color del botón de cierre */
+  }
+  
+  .chat-body {
+    padding: 10px;
+    height: 250px;
+    overflow-y: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado grande */
+  }
+  
+  .chat-message {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .chat-message.user {
+    background-color: #f0f0f0;
+    text-align: left;
+  }
+  
+  .chat-message.admin {
+    background-color: #e2c7ab;
+    text-align: right;
+  }
+  
+  .chat-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .chat-submit {
+    padding: 10px;
+    background-color: #804000; /* Color del botón */
+    color: #fefafa; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  /*Agendar visita*/
+  .reporte-container {
+    max-width: 800px;
+    margin: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reporte-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .reporte-item h2 {
+    margin-top: 0;
+  }
+  
+  .reporte-item p {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el formulario de agendar de visita */
+  .main-content {
+    flex: 1; /* Permite que el panel central ocupe el espacio restante */
+    padding: 20px;
+  }
+  
+  .content-wrapper {
+    background-color: #f4eae3;
+    max-width: 600px; /* Ajusta el ancho según sea necesario */
+    width: 100%;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 5px;
+  }
+  
+  
+  
+  /* Estilos para el formulario del reporte */
+  #reporte-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  #reporte-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  #reporte-form input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  
+  
+  /*Inicio Vigilante*/
+  /* General */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+  }
+  
+  .App {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* Estilos del botón "Ver más" */
+  .button-container {
+    text-align: center; /* Centra el botón horizontalmente */
+    margin-top: 20px; /* Espacio superior del botón */
+  }
+  
+  .perfil-button {
+    display: inline-block; /* Hace que el botón se ajuste al contenido */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño del texto del botón */
+    color: #fff; /* Color del texto del botón */
+    background-color: #be8042; /* Color de fondo del botón en la gama de cafés */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  }
+  
+  .perfil-button:hover {
+    background-color: #6f3f22; /* Color de fondo al pasar el ratón sobre el botón */
+  }
+  
+  footer {
+    background-color: #6e3f1d;
+    padding: 20px;
+    text-align: center;
+    color: #FFF0E6;
+  }
+
+  
+  footer {
+    background-color: #6e3f1d;
+    padding: 20px;
+    text-align: center;
+    color: #FFF0E6;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .contact-info p {
+    margin-bottom: 10px;
+  }
+  
+  
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #6e3f1d;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+  }
+  
+  .sidebar.menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar.menu ul li {
+    padding: 10px 15px;
+    text-align: left;
+  }
+  
+  .sidebar.menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .icono-container img {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+  }
+  .icono-container:hover {
+    background-color: #d9bda5;
+  }
+  
+  
+  /* Ajuste del contenido cuando la sidebar está abierta */
+  .main-content {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .main-content.shifted {
+    margin-left: 250px;
+  }
+  
+  /*Calendario*/
+  /* App3.css */
+  .calendar-container {
+    display: none; /* Inicialmente oculto */
+    width: 100%;
+    height: 300px; /* Ajusta según tus necesidades */
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .fc {
+    height: 100% !important; /* Asegura que el calendario ocupe el 100% del contenedor */
+  }
+  
+
+  .ver-mas-button {
+    
+    padding: 10px 10px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño del texto del botón */
+    color: #fff; /* Color del texto del botón */
+    background-color: #6f3f22;/* Color de fondo del botón en la gama de cafés */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  }
+  
+  .ver-mas-button:hover {
+    background-color: #be8042; /* Color de fondo al pasar el ratón sobre el botón */
+  }
+  /*.contact-admin-button {
+    padding: 10px 20px;  Espaciado interno del botón 
+    font-size: 16px;  Tamaño del texto del botón 
+    color: #fff;  Color del texto del botón 
+    background-color: #6f3f22; Color de fondo del botón en la gama de cafés 
+    border-radius: 5px;  Bordes redondeados del botón 
+    text-decoration: none;  Quita el subrayado del enlace 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad 
+  }
+  
+  .contact-admin-button:hover {
+    background-color: #be8042;  Color de fondo al pasar el ratón sobre el botón 
+  }
+
+  .contact-admin-box {
+    background-color: rgba(0, 0, 0, 0.8);  Fondo semi-transparente 
+    border: 2px solid #FFD700;  Borde dorado para resaltar 
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }*/
+  
+  .contact-admin-button {
+    background-color: #6f3f22; /* Color dorado para el botón */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    display: inline-block;
+  }
+  
+  .contact-admin-button:hover {
+    background-color: #be8042; /* Cambia a un tono naranja cuando se pasa el ratón */
+  }
+  
+  .contact-admin-box h2, .contact-admin-box p {
+    color: #FFD700; /* Texto en dorado para resaltar */
+  }
+  
+  .contact-admin-box h2 {
+    font-size: 20px;
+  }
+  
+  .contact-admin-box p {
+    font-size: 16px;
+  }
+  
+  
+  /* CSS para el menú desplegable */
+  /* Menú horizontal */
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: #6e3f1d;
+    border-bottom: 1px solid #ccc;
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  
+  .menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 20px;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fefafa;
+  }
+  
+  .menu a:hover {
+    color: #966e4d;
+  }
+  
+  /* Menú desplegable */
+  .dropdown-menu {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Posición absoluta para que se pueda desplegar sobre otros elementos */
+    top: 60px; /* Ajusta según la altura del menú horizontal */
+    right: 0; /* Ajusta según la posición deseada */
+    background-color: #fff; /* Color de fondo del menú desplegable */
+    border: 1px solid #ccc; /* Borde alrededor del menú */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  }
+  
+  .dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px 20px;
+  }
+  
+  .dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown-menu a:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Ventana para ver mas */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #F5F0EE;;
+    margin: 15% auto;
+    padding: 50px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  
+  /*Iconos de vehiculo*/
+  .left-section {
+    text-align: center;
+    width: 40%; /* Ajusta este valor según lo necesario */
+    padding-top: 300px;
+  }
+  
+  .icono-grande {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.1px; /* Ajusta el valor según lo que necesites */
+  }
+  
+  
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 50px;
+  }
+  
+  .right-section form {
+    width: 50%;
+  }
+  
+  /*Iconos de vehiculo*/
+  #vehiculo-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .form-row label {
+    flex: 0 0 40px; /* Ajusta este valor según el tamaño de tus iconos */
+    margin-right: 10px;
+  
+  }
+  
+  .form-row input {
+    flex: 1;
+  }
+  
+  .icono-animado {
+    max-width: 120px; /* Ajusta el tamaño del GIF según tus necesidades */
+    height: auto;
+    display: inline-block;
+    margin-top: 100px; /* Espacio arriba del GIF para separarlo del texto */
+  }
+  
+  .center-buttons {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    gap: 100px; /* Espacio entre los botones, ajusta según sea necesario */
+  }
+  
+  .sidebar-gif {
+    width: 100px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Estilos del modal personalizado */
+  /* Estilos del modal */
+  
+  
+  .modal-header {
+    padding: 10px;
+    background-color: #f1f1f1; /* Fondo claro para el encabezado */
+    color: #333; /* Texto oscuro para el título */
+    border-bottom: 1px solid #ccc;
+  }
+  
+  
+  .modal-body {
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco para el cuerpo del modal */
+    color: #000; /* Texto oscuro */
+  }
+  
+  .modal-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .modal-list li {
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333; /* Color de las letras */
+  }
+  
+  .modal-list li i {
+    color: #28a745; /* Color de los íconos */
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  
+  
+  /* Estilos actualizados */
+  .reports-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 10px; /* Espaciado para evitar que el contenedor toque los bordes de la pantalla */
+    box-sizing: border-box;
+    
+  }
+  
+  .graph-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Cambia de center a flex-end para alinear a la derecha */
+    gap: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Ajusta según el diseño */
+    padding: 0 20px; /* Espaciado para evitar que los gráficos toquen los bordes */
+    box-sizing: border-box;
+  }
+  
+  
+  .visitor-report {
+    width: 100%;
+    max-width: 500px;
+    background-color: #d9bda5;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .visitor-report:hover {
+    background-color: #f4eae3;
+    transform: scale(1.02);
+  }
+  
+  .reports-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Cambia de center a flex-end para alinear a la derecha */
+    gap: 40px; /* Espacio entre los diagramas */
+    width: 100%;
+    max-width: 1100px; /* Ajusta según el diseño */
+    padding: 20px; /* Espaciado para evitar que los gráficos toquen los bordes */
+    box-sizing: border-box;
+    border: 2px solid #ccc; 
+    border-radius: 8px;
+    margin: 20px auto; /* Centra el contenedor horizontalmente y le da margen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+  }
+  
+  .report-card {
+    text-align: center;
+  }
+  
+  canvas {
+    max-width: 100%;
+  }
+  .message-box {
+    display: none; /* Oculto por defecto */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #8c582b;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

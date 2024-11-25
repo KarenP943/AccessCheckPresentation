@@ -1,0 +1,37 @@
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #6e3f1d;
+  border-bottom: 1px solid #ccc;
+}
+
+.App {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding: 10px;
+  background-color: #6e3f1d;
+  border-bottom: 1px solid #ccc;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #533119;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #dcc9bc;
+}

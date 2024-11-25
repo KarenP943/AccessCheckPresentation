@@ -1,0 +1,34 @@
+.content-inicio {
+    border: 2px solid #ccc;
+    padding: 20px; /* Disminuye el padding superior */
+    margin: 5px;
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor */
+    margin: 20px auto; /* Centra el contenedor horizontalmente */
+    display: flex; /* Convierte el contenedor en un contenedor flexible */
+    justify-content: space-between;/* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    height: 90vh; /* Ajusta la altura del contenedor al 100% de la altura de la pantalla */
+    box-sizing: border-box; /* Ajusta el tamaño del contenedor para incluir el padding y el borde */
+    overflow: hidden; /* Oculta el contenido que se sale del contenedor */
+    flex-direction: column; /* Cambia la dirección del contenido a columna */
+    align-items: flex-start; /* Ajusta el contenido al inicio del contenedor */
+  }
+
+.right {
+    height: 10%;
+    flex-basis: 10%; /* Ajusta la altura del texto al 50% del contenedor */
+    padding: 20px; /* Agrega un padding al texto */
+  }
+
+.inicio-button {
+    display: block; /* Convierte el botón en un elemento de bloque */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    padding: 10px 20px; /* Agrega un padding al botón */
+    text-align: center; /* Centra el texto dentro del botón */
+    font-size: 16px; /* Tamaño del texto del botón */
+    color: #fff; /* Color del texto del botón */
+    background-color: #be8042; /* Color de fondo del botón en la gama de cafés */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  }  
