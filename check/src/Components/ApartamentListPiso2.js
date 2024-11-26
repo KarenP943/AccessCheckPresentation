@@ -3,7 +3,7 @@ import '../Styles/App3.css';
 import axios from 'axios';
 import Apartment from './Apartament'; // Asegúrate de que la ruta sea correcta
 
-const ApartmentList = () => {
+const ApartmentListPiso1 = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedApartment, setSelectedApartment] = useState(null);
@@ -11,7 +11,7 @@ const ApartmentList = () => {
     useEffect(() => {
       const fetchUsuarios = async () => {
         try {
-          const response = await axios.get('http://localhost:5000/api/usuarios');
+          const response = await axios.get('http://localhost:5000/TorreAPiso1');
           setUsuarios(response.data);
         } catch (error) {
           console.error('Error al obtener los usuarios:', error);
@@ -61,4 +61,4 @@ const ApartmentList = () => {
     );
   };
   
-  export default ApartmentList;
+  export default ApartmentListPiso1;

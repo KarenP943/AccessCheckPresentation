@@ -1427,12 +1427,14 @@ footer {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 20px;
 }
 
 .graph-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajusta las columnas automáticamente */
-  gap: 20px;
+  display: flex; /* Cambia a flexbox para centrar el contenido */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  align-items: center; /* Centra los elementos en el eje horizontal */
+  gap: 20px; /* Espacio entre los elementos */
 }
 
 
@@ -1450,8 +1452,9 @@ footer {
 
 
 .reports-wrapper {
-  width: 200%;
-  margin: 0 auto;
+  max-width: 800px; /* Establece un ancho máximo para centrar el contenido */
+  width: 100%; /* Asegúrate de que ocupe el 100% del contenedor padre */
+  margin: 0 auto; /* Centra el contenedor */
 }
 
 .report-card {
@@ -1460,6 +1463,7 @@ footer {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centra el texto dentro del card */
 }
 
 
@@ -1697,7 +1701,7 @@ button:hover {
 }
 
 /* Estilo para los días del calendario */
-.react-calendar__month-view__days__day {
+.react-calendar_month-viewdays_day {
   width: 2.5em; /* Ancho del día */
   height: 2.5em; /* Altura del día */
   border-radius: 8px; /* Bordes redondeados */
@@ -1710,22 +1714,22 @@ button:hover {
 }
 
 /* Estilo para los días en hover */
-.react-calendar__month-view__days__day:hover {
+.react-calendar_month-viewdays_day:hover {
   background-color: #d9bda576; /* Fondo claro al pasar el mouse */
 }
 
 /* Estilo para los días en hover */
-.react-calendar__month-view__days__day:hover {
+.react-calendar_month-viewdays_day:hover {
   background-color: #e7f1ff; /* Fondo claro al pasar el mouse */
 }
 
 /* Estilo para el día de hoy */
-.react-calendar__month-view__days__day--today {
+.react-calendar_month-viewdays_day--today {
   border: 2px solid #804000; /* Borde azul para el día actual */
 }
 
 /* Estilo para los días deshabilitados */
-.react-calendar__month-view__days__day--disabled {
+.react-calendar_month-viewdays_day--disabled {
   color: #ccc; /* Color gris para días deshabilitados */
 }
 
@@ -1735,13 +1739,13 @@ button:hover {
 }
 
 /* Estilo para el contenedor de los días */
-.react-calendar__month-view__days {
+.react-calendar_month-view_days {
   display: flex; /* Cambiado a flex */
   flex-wrap: wrap; /* Permite que los días se ajusten a varias filas */
 }
 
 /* Asegúrate de que el primer día de la semana esté alineado correctamente */
-.react-calendar__month-view__days__day:nth-child(n+1):nth-child(-n+7) {
+.react-calendar_month-viewdays_day:nth-child(n+1):nth-child(-n+7) {
   margin-left: 0; /* Elimina el margen izquierdo en la primera fila */
 }
 /* Estilos para el contenedor de agendamientos */
@@ -1829,6 +1833,11 @@ h2, h1 {
   }
 }
 /* Estilo para los días en hover */
-.react-calendar__month-view__days__day:hover {
+.react-calendar_month-viewdays_day:hover {
   background-color: #d9bda576; /* Fondo claro al pasar el mouse */
+}
+
+.selected {
+  background-color: #d9bda576; /* Color de fondo para el día seleccionado */
+  border-radius: 8%;
 }

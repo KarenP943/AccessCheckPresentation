@@ -499,6 +499,46 @@ app.put("/update", (req, res) => {
 });
 
 
+//VER REPORTES
+app.get("/reportes/:date", (req, res) => {
+    const date = req.params.date; // Obtener la fecha del parámetro de la URL
+
+    // Consulta SQL para obtener los reportes
+    const query = `
+        SELECT 
+            HOUR(horaInicio) AS hora,
+            COUNT(*) AS visitas
+        FROM agendamientoentrada
+        WHERE DATE(fechaInicio) = ?
+        GROUP BY HOUR(horaInicio);
+    `;
+
+    db.query(query, [date], (err, results) => {
+        if (err) {
+            console.error("Error al obtener reportes:", err);
+            return res.status(500).send("Error al obtener reportes");
+        }
+
+        // Inicializa un arreglo de 24 elementos con 0
+        const dailyData = Array(24).fill(0);
+        let totalVisitas = 0; // Variable para contar el total de visitas
+
+        // Asigna el número de visitas a la hora correspondiente
+        results.forEach(row => {
+            dailyData[row.hora] = row.visitas; // row.hora es el índice de la hora
+            totalVisitas += row.visitas; // Sumar al total de visitas
+        });
+
+        res.json({
+            daily: dailyData,
+            total: totalVisitas, // Incluir el total de visitas
+            date: date // Incluir la fecha para referencia
+        });
+    });
+});
+
+
+
 
 
 // Ruta para obtener usuarios Por torres

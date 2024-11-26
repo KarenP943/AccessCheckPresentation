@@ -14,7 +14,7 @@ const ApartmentListPiso1 = () => {
           // Cambia 'A' por la torre que deseas filtrar
           const response = await axios.get('http://localhost:5000/TorreAPiso1', {
             params: {
-              torre: 'A', // Filtrar por torre A
+              torre: 'A', 
             },
           });
           setUsuarios(response.data);
